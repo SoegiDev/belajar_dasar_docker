@@ -69,5 +69,4 @@ jobs:
       - name: Build Images Docker to Registry GITHUB
         run: |
           docker build . --tag ghcr.io/soegidev/belajar_dasar_docker:latest
-          docker run ghcr.io/soegidev/belajar_dasar_docker:latest
           docker push ghcr.io/soegiedv/belajar_dasar_docker:latest
