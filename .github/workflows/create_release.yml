@@ -11,6 +11,8 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     permissions:
+      issues: write
+      pull-requests: write
       contents: read
       packages: write
     steps:
