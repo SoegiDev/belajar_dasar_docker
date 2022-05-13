@@ -3,7 +3,7 @@ name: Pylint
 on: [push]
 
 jobs:
-  jobs_test1:
+  check_with_pylint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,7 +27,7 @@ jobs:
         pylint $(git ls-files '*.py')
 
   build:
-    needs: jobs_test1
+    needs: push to Docker
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 

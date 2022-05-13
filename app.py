@@ -1,4 +1,4 @@
-"""A dummy docstring."""
+""" MODULE STRING """
 import os
 from flask import Flask,jsonify
 app = Flask(__name__)
@@ -11,5 +11,7 @@ def hello_world():
     """
     env = os.environ.get('FLASK_ENV')
     return jsonify({
-        "data": f"Hello World {env}"
+        "data": f"Hello World {env} TESTING VOLUMES"
     })
+if __name__ == "__main__":
+    app.run(host=HOST,port=PORT)
