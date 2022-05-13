@@ -39,9 +39,10 @@ jobs:
         run: docker-compose -f "docker-compose.yml" down --rmi local
       - name: docker login
         run: | # log into docker hub account
-        docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: docker tag
         run: | # log into docker hub account
-        docker tag belajar_dasar_docker_app-dev:latest soegidev/belajardocker:latest
+          docker tag belajar_dasar_docker_app-dev:latest soegidev/belajardocker:latest
       - name: push images to docker
         run: docker push soegidev/belajardocker:latest
 
