@@ -11,7 +11,7 @@ def hello_world():
     """
     env = os.environ.get('FLASK_ENV')
     return jsonify({
-        "data": f"Hello World {env} TESTING VOLUMES"
+        "data": f"Hello World {env} TESTING VOLUMES TAMBAHAN"
     })
 if __name__ == "__main__":
     app.run(host=HOST,port=PORT)
