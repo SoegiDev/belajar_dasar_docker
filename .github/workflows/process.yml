@@ -26,8 +26,8 @@ jobs:
       run: |
         pylint $(git ls-files '*.py')
 
-  build:
-    needs: push to Docker
+  push_to_docker:
+    needs: check_with_pylint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 
