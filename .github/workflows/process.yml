@@ -39,7 +39,7 @@ jobs:
         run: docker-compose -f "docker-compose.yml" down --rmi local
       - name: docker login
         run: | # log into docker hub account
-        docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
+        docker login -u ${{ DOCKERHUB_USERNAME }} -p ${{ DOCKERHUB_TOKEN }}
       - name: docker TAGGING
         run: | # log into docker hub account
         docker tag belajar_dasar_docker_app-dev:latest soegidev/belajardocker:latest
