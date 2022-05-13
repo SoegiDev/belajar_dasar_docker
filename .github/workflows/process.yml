@@ -29,6 +29,9 @@ jobs:
   push_to_docker:
     needs: check_with_pylint
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout 
         uses: actions/checkout@v2
@@ -55,7 +58,7 @@ jobs:
       - name: Create Tag DOcker and Stop containers
         if: always()
         run: |
-          docker tag belajar_dasar_docker_app-dev:latest soegidev/belajardocker:latest
+          docker tag belajar_dasar_docker_app-dev:latest soegidev/belajar_dasar_docker:latest
           docker-compose -f "docker-compose.yml" down --rmi local
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
