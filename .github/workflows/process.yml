@@ -48,15 +48,21 @@ jobs:
     needs: push_to_docker
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
+      - name: Checkout 
+        uses: actions/checkout@v2
+      - name: Start containers
+        run: docker-compose -f "docker-compose.yml" up -d --build
+      - name: Create Tag DOcker and Stop containers
+        if: always()
+        run: |
+          docker tag belajar_dasar_docker_app-dev:latest soegidev/belajardocker:latest
+          docker-compose -f "docker-compose.yml" down --rmi local
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build Images Docker to Registry GITHUB
         run: |
           docker build . --tag ghcr.io/soegidev/belajar_dasar_docker:latest
