@@ -13,13 +13,13 @@ services:
       - FLASK_DEBUG=1
       - FLASK_ENV=dev
 
-  app-prod:
-    container_name: belajardocker-prod
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 8002:5000
-    environment:
-      - FLASK_DEBUG=0
-      - FLASK_ENV=production
+  # app-prod:
+  #   container_name: belajardocker-prod
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - 8002:5000
+  #   environment:
+  #     - FLASK_DEBUG=0
+  #     - FLASK_ENV=production
